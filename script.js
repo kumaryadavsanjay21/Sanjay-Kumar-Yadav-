@@ -1,32 +1,39 @@
 console.log("Website Loaded");
+
+// FAQ safe handling
 const items = document.querySelectorAll(".faq-item");
 
 items.forEach(item => {
-  item.querySelector(".faq-question").addEventListener("click", () => {
-    
-    // close others
-    items.forEach(i => {
-      if(i !== item){
-        i.classList.remove("active");
-      }
-    });
+  const question = item.querySelector(".faq-question");
 
-    // toggle current
-    item.classList.toggle("active");
-  });
+  if(question){
+    question.addEventListener("click", () => {
+      items.forEach(i => {
+        if(i !== item){
+          i.classList.remove("active");
+        }
+      });
+      item.classList.toggle("active");
+    });
+  }
 });
 
-const text = "Digital Marketing Consultant in Ranchi "; 
+// Typing effect
+const text = "Digital Marketing Consultant in Ranchi ";
 let index = 0;
 
 function typeEffect(){
+  const el = document.getElementById("typed");
+
+  if(!el) return; // ❗ important
+
   if(index < text.length){
-    document.getElementById("typed").innerHTML += text.charAt(index);
+    el.innerHTML += text.charAt(index);
     index++;
     setTimeout(typeEffect, 100);
   } else {
     setTimeout(() => {
-      document.getElementById("typed").innerHTML = "";
+      el.innerHTML = "";
       index = 0;
       typeEffect();
     }, 2000);
