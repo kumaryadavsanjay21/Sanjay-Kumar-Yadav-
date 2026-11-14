@@ -19,7 +19,7 @@ items.forEach(item => {
 });
 
 // Typing effect
-const text = "Digital Marketing Consultant in Ranchi ";
+const text = "Google Ads Expert in Ranchi ";
 let index = 0;
 
 function typeEffect(){
